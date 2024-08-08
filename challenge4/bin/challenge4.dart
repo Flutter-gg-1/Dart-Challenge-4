@@ -2,7 +2,6 @@ import 'dart:io';
 import 'data.dart';
 
 void main(List<String> arguments) {
-
   Product p = Product.fromJson(data);
 
   print(p.toJson());
@@ -26,10 +25,18 @@ class Product {
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
-        id: json['products']['id'],
-        name: json['products']['name'],
-        price: json['products']['price'],
-        quantity: json['products']['quantity']);
+        id: json['products'].map<String,dynamic>((p) => p.containsKey('warrantyPeriod')
+            ? Electronics.fromJson(json['id'])
+            : Clothing.fromJson(json['id'])),
+        name: json['products'].map((p) => p.containsKey('warrantyPeriod')
+            ? Electronics.fromJson(json['name'])
+            : Clothing.fromJson(json['name'])),
+        price: json['products'].map((p) => p.containsKey('warrantyPeriod')
+            ? Electronics.fromJson(json['price'])
+            : Clothing.fromJson(json['price'])),
+        quantity: json['products'].map((p) => p.containsKey('warrantyPeriod')
+            ? Electronics.fromJson(json['quantity'])
+            : Clothing.fromJson(json['quantity'])));
   }
 
   toJson() {
@@ -60,7 +67,7 @@ class Product {
     }
   }
 
-  addProduct(Product product){
+  addProduct(Product product) {
     products.add(product);
   }
 }
