@@ -1,4 +1,4 @@
-void main(List<String> arguments) {
+void main() {
   var mgr = Mgr();
 
   var newP = Product(id: '100', name: 'New', price: 0.5, quanitty: 12);
@@ -57,7 +57,7 @@ class Electronics extends Product {
   Electronics({this.warrantyPeriod});
 
   factory Electronics.fromJson(Map<String, dynamic> json) {
-    return Electronics(warrantyPeriod: json['']);
+    return Electronics(warrantyPeriod: json['warrantyPeriod']);
   }
 }
 
@@ -67,7 +67,7 @@ class Clothing extends Product {
   Clothing({this.size});
 
   factory Clothing.fromJson(Map<String, dynamic> json) {
-    return Clothing(size: json['']);
+    return Clothing(size: json['size']);
   }
 }
 
