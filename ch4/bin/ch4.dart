@@ -4,17 +4,28 @@ import 'global.dart';
 
 void main() {
   var x = Products.fromJson(myData);
-  var xx = Product(id: "5", name: "Something", price: 200.0, quantity: 50);
+  var xx = Product(id: "5", name: "Something", price: 200, quantity: 50);
   //print(x.product.first.id);
   displayProducts(x.product);
   updateProductQuantity("4", 100);
   getProductById("4");
   addProduct(xx);
-  displayProducts(gg);
+  displayProductsList(gg);
 }
 
 displayProducts(List<Product> pro) {
   for (var element in pro) {
+    print("--------------");
+    gg.add(element);
+    print("ID:${element.id}");
+    print("Name:${element.name}");
+    print("Price:${element.quantity}");
+    print("Quntity:${element.quantity}");
+  }
+}
+
+displayProductsList(List<Product> pro) {
+  for (var element in gg) {
     print("--------------");
     print("ID:${element.id}");
     print("Name:${element.name}");
