@@ -1,5 +1,4 @@
 ### 💡 Challenge 4: E-Commerce System with JSON Data 🛒 
-**Here is a sample JSON data structure for the university courses:**
 ```
 {
   "products": [
